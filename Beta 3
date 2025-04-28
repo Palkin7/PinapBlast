@@ -1,0 +1,52 @@
+// script.js
+const pokemonData = {
+    bulbasaur: {
+        number: "001",
+        name: "BULBASAUR",
+        location: "Starter Pokemon from Professor Oak",
+        earlyGamePerformance: "Excellent",
+        gymPerformance: {
+            brock: "Outstanding (Vine Whip demolishes Rock types)",
+            misty: "Outstanding (Resistant to Water, strong Grass moves)",
+            ltSurge: "Average (Electric isn't super effective, but can take hits well)"
+        },
+        earlyMoves: [
+            {level: "start", move: "Tackle"},
+            {level: "start", move: "Growl"},
+            {level: "7", move: "Leech Seed"},
+            {level: "10", move: "Vine Whip"}
+        ],
+        evolution: "Level 16 to Ivysaur",
+        recommendedPartners: "Pidgey helps against Fighting types, Mankey covers Dark/Ice weaknesses",
+        playthroughNotes: "One of the smoothest early games possible. Makes first two gyms extremely easy."
+    },
+    // Add Ivysaur and Venusaur data here in the same format
+};
+
+function displayPokemon() {
+    const container = document.getElementById('pokemon-list');
+    
+    for (const [key, pokemon] of Object.entries(pokemonData)) {
+        const card = document.createElement('div');
+        card.className = 'pokemon-card';
+        card.innerHTML = `
+            <h2>#${pokemon.number} ${pokemon.name}</h2>
+            <p><strong>Location:</strong> ${pokemon.location}</p>
+            <p><strong>Early Game Performance:</strong> ${pokemon.earlyGamePerformance}</p>
+            <h3>Gym Performance:</h3>
+            <p>Brock: ${pokemon.gymPerformance.brock}</p>
+            <p>Misty: ${pokemon.gymPerformance.misty}</p>
+            <p>Lt. Surge: ${pokemon.gymPerformance.ltSurge}</p>
+            <h3>Early Moves:</h3>
+            ${pokemon.earlyMoves.map(move => 
+                `<p>Level ${move.level}: ${move.move}</p>`
+            ).join('')}
+            <p><strong>Evolution:</strong> ${pokemon.evolution}</p>
+            <p><strong>Recommended Partners:</strong> ${pokemon.recommendedPartners}</p>
+            <p><strong>Playthrough Notes:</strong> ${pokemon.playthroughNotes}</p>
+        `;
+        container.appendChild(card);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', displayPokemon);
