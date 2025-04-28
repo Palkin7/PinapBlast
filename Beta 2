@@ -1,0 +1,31 @@
+/* style.css */
+:root {
+    --habanero-orange: #FF6B35;
+    --moltres-black: #1A1A1A;
+    --moltres-purple: #4B0082;
+}
+
+body {
+    background-color: var(--moltres-black);
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--habanero-orange);
+    padding: 20px;
+    text-align: center;
+}
+
+.pokemon-card {
+    background-color: var(--moltres-purple);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.pokemon-card h2 {
+    color: var(--habanero-orange);
+}
